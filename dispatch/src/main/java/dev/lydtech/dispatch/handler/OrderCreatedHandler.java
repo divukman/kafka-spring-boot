@@ -1,6 +1,7 @@
 package dev.lydtech.dispatch.handler;
 
 
+import dev.lydtech.dispatch.message.OrderCreated;
 import dev.lydtech.dispatch.service.DispatchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +20,7 @@ public class OrderCreatedHandler {
             topics = "order.created",
             groupId = "dispatch.order.created.consumer"
     )
-    public void listen(final String payload) {
+    public void listen(final OrderCreated payload) {
         log.info("Message received: " + payload);
         dispatchService.process(payload);
     }

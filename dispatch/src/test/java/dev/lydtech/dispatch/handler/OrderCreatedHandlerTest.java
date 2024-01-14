@@ -1,8 +1,12 @@
 package dev.lydtech.dispatch.handler;
 
+import dev.lydtech.dispatch.message.OrderCreated;
 import dev.lydtech.dispatch.service.DispatchService;
+import dev.lydtech.dispatch.util.TestEventData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -20,7 +24,7 @@ class OrderCreatedHandlerTest {
 
     @Test
     void listen() {
-        final String payload = "payload";
+        final OrderCreated payload = TestEventData.buildOrderCreatedEvent(UUID.randomUUID(), "testItem");
         handler.listen(payload);
         verify(serviceMock, times(1)).process(payload);
     }
