@@ -1,4 +1,4 @@
-kafka-console-producer --topic order.created
+docker container exec -it kafka /bin/bash
 
 kafka-console-producer --broker-list localhost:9092 --topic order.created
 
