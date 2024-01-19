@@ -7,4 +7,5 @@ kafka-console-producer --broker-list localhost:9092 --topic order.created
 
 kafka-console-consumer --topic order.dispatched --bootstrap-server localhost:9092
 kafka-console-consumer --topic dispatch.tracking --bootstrap-server localhost:9092
+kafka-console-consumer --topic tracking.status --bootstrap-server localhost:9092
 
